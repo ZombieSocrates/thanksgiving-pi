@@ -1,0 +1,12 @@
+{
+  "name": "thanksgiving-pi",
+  "description": "Browser based rejection sampler to estimate pi",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "lite-server"
+    },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZombieSocrates/thanksgiving-pi.git"
+  }
+}
