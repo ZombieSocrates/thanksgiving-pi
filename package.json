@@ -2,6 +2,7 @@
   "name": "thanksgiving-pi",
   "description": "Browser based rejection sampler to estimate pi",
   "version": "1.0.0",
+  "main":"make-pi.js",
   "scripts": {
     "dev": "lite-server"
     },
