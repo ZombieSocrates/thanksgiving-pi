@@ -1,6 +1,4 @@
 
-
-
 window.onload = function () {
 
     let axProps = { 
@@ -11,26 +9,40 @@ window.onload = function () {
         stripLines:[ {
             value: 1,
             showOnTop: true,
-            color: "grey",
-            thickness: 1,
+            color: "black",
+            thickness: 2,
             lineDashType: "dash"
-        }]
+        }],
+        labelFormatter: function(e) {
+            return e.value == 0 ? '' : e.value
+        }
     };
+
     let inCircle = [];
     let outCircle = [];
     let circleBounds = [];
     for (let i = 0; i < 101; i++){
         let j = Math.sqrt(1 - Math.pow(i/100, 2))
         circleBounds.push({ x: i/100, y: j})
-    }
+    };
 
 
     let samplingRate = 500;
 
     let chart = new CanvasJS.Chart("chartContainer",{
         title: {
-            horizontalAlign: 'left'
+            horizontalAlign: 'center'
         },
+        subtitles:[
+        {
+            fontColor: "#f49e56",
+            fontSize: 16
+        },
+        {
+            fontColor: "#ac6730",
+            fontSize: 16
+        }
+        ],
         interactivityEnabled: false,
         axisX: axProps,
         axisY: axProps,
@@ -60,8 +72,12 @@ window.onload = function () {
         ]
     });
 
+    function getTotalPoints(){
+        return inCircle.length + outCircle.length;
+    }
+
     function estimatePi() {
-        let nPoints = inCircle.length + outCircle.length;
+        let nPoints = getTotalPoints();
         let estim = nPoints == 0 ? nPoints : 4 * inCircle.length/nPoints;
         return estim;
     }
@@ -73,7 +89,9 @@ window.onload = function () {
             let dist = Math.pow(point.x, 2) + Math.pow(point.y, 2);
             if (dist > 1) {outCircle.push(point)}
             else {inCircle.push(point)}
-            chart.options.title.text = `\u03C0 \u2248 ${estimatePi()}` 
+            chart.options.title.text = `\u03C0 \u2248 ${estimatePi()}`
+            chart.options.subtitles[0].text = `Points In Circle: ${inCircle.length.toLocaleString()}`
+            chart.options.subtitles[1].text = `Total Points Sampled: ${getTotalPoints().toLocaleString()}`
             chart.render();
         }
     }
