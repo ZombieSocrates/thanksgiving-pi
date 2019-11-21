@@ -26,10 +26,6 @@ window.onload = function () {
         let j = Math.sqrt(1 - Math.pow(i/100, 2))
         circleBounds.push({ x: i/100, y: j})
     };
-
-
-    let samplingRate = 100;
-
     let chart = new CanvasJS.Chart("chartContainer",{
         title: {
             horizontalAlign: 'center',
@@ -91,21 +87,24 @@ window.onload = function () {
         return estim;
     }
 
-    function rejectionSample(initCount) {
-        count = initCount || 1
-        for (let i = 0; i < count; i ++) {
-            let point = { x: Math.random(), y: Math.random() };
-            let dist = Math.pow(point.x, 2) + Math.pow(point.y, 2);
-            if (dist > 1) {outCircle.push(point)}
-            else {inCircle.push(point)}
-            chart.options.title.text = `\u03C0 \u2248 ${estimatePi()}`
-            chart.options.subtitles[0].text = `Points In Circle: ${inCircle.length.toLocaleString()}`
-            chart.options.subtitles[1].text = `Total Points Sampled: ${getTotalPoints().toLocaleString()}`
-            chart.render();
-        }
+    function rejectionSample() {
+        let point = { x: Math.random(), y: Math.random() };
+        let dist = Math.pow(point.x, 2) + Math.pow(point.y, 2);
+        if (dist > 1) {outCircle.push(point)}
+        else {inCircle.push(point)}
+        chart.options.title.text = `\u03C0 \u2248 ${estimatePi()}`
+        chart.options.subtitles[0].text = `Points In Circle: ${inCircle.length.toLocaleString()}`
+        chart.options.subtitles[1].text = `Total Points Sampled: ${getTotalPoints().toLocaleString()}`
+        chart.render();
     }
 
-//Initializing with more than 100 points makes the page load slow
-rejectionSample();
-setInterval(function(){rejectionSample()}, samplingRate);
+let samplingRate = $('input[name=speed-opts]:checked').val();
+let samplingLoop = setInterval(function(){rejectionSample()}, samplingRate);
+$("input[name=speed-opts]:radio").on( "change", function(event, ui) {
+    clearInterval(samplingLoop);
+    let samplingRate = $('input[name=speed-opts]:checked').val();
+    console.log("Changed to " + samplingRate);
+    samplingLoop = setInterval(function(){rejectionSample()}, samplingRate);
+});
+
 }
