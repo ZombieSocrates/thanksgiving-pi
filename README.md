@@ -7,10 +7,3 @@ npm init -y
 npm install lite-server --save-dev
 npm run dev
 ```
-
-## TODO:
- - Use bootstrap and actual stylesheets (ugh)
- - Add stuff to make this a mock recipe
- - Slider bar to control the sampling rate
-
- 

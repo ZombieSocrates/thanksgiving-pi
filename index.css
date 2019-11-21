@@ -16,3 +16,20 @@ body {
 .piGraph {
 	width: 80%;
 	height: 80%;
+}
+
+.ingredientContainer {
+	font-family: "Helvetica Neue";
+	text-align: left;
+	color: #859D3C;
+}
+
+.list-group-item {
+	color: #F8B12C;
+	background-color: #996236;
+	max-width: 85%;
+}
+
+code {
+	color:#F8B12C;
+}

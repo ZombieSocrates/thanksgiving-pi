@@ -11,18 +11,36 @@
   	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
 
     <title>Holiday Rejection Sampler</title>
   	<link rel="icon" href="favicon.ico" type="image/x-icon"> 
   </head>
 <body>
-  <div class="headlineContainer"><h1>Happy Thanksgiving, ChIDEO! Have some pi!</h1></div>
+  <div class="headlineContainer"><h1>Happy Thanksgiving, ChIDEO! Celebrate with Pi!</h1></div>
   <div class="row">
   	<div class="col-md-6">
       <div class="piGraph" id="chartContainer"></div>
     </div>
     <div class="col-md-6">
-      <p>Some other things...</p>
+      <div class="ingredientContainer">
+      	<h2>Ingredients</h2>
+      	  <ul class="list-group list-group-flush">
+      	  	<li class="list-group-item">A square with side length of 1</li>
+      	  	<l1 class="list-group-item">A circle with radius of 1</l1>
+      	  	<l1 class="list-group-item">A uniform random number generator on [0, 1]</l1>
+      	  </ul>
+      	<h2>Directions</h2>
+      	  <ul class="list-group list-group-flush">
+      	  	<li class="list-group-item">1. Inscribe the unit circle within the unit square, placing its center at one of the square's corners</li>
+      	  	<l1 class="list-group-item">2. Generate two random numbers, forming a coordinate pair. Plot it within your square, noting whether or not it <i> also falls within the circle.</i></l1>
+      	  	<l1 class="list-group-item">3. Repeat step 2 to taste, tracking both \(C =\) number of points in the circle and \(N =\) total number of points sampled, until your approximation is golden brown.</l1>
+      	  	<l1 class="list-group-item">4. As \(N \to \infty\), \({C \over N} \to {{\pi r^2 \over 4} \div r^2}\), the area of the circle divided by the area of the square. Cancelling \(r^2\), we see that \({C \over N} \to {\pi \over 4}\). As such, \(4 * {C \over N} \to \pi\).</l1>
+      	  	<l1 class="list-group-item">5. Serve at <code>localhost:3000</code></l1>
+      	  </ul>
+      </div>
     </div>
   </div>
 </body>
