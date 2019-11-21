@@ -13,6 +13,7 @@ window.onload = function () {
             thickness: 2,
             lineDashType: "dash"
         }],
+        labelFontFamily: "Helvetica Neue",
         labelFormatter: function(e) {
             return e.value == 0 ? '' : e.value
         }
@@ -27,25 +28,33 @@ window.onload = function () {
     };
 
 
-    let samplingRate = 500;
+    let samplingRate = 100;
 
     let chart = new CanvasJS.Chart("chartContainer",{
         title: {
-            horizontalAlign: 'center'
+            horizontalAlign: 'center',
+            fontColor: "#F8B12C",
+            fontFamily: 'Helvetica Neue',
+            fontWeight: 'bold'
         },
         subtitles:[
         {
-            fontColor: "#f49e56",
-            fontSize: 16
+            fontColor: "#F8B12C",
+            fontFamily: 'Helvetica Neue',
+            fontSize: 16,
+            fontWeight: 'bold'
         },
         {
-            fontColor: "#ac6730",
-            fontSize: 16
+            fontColor: "#ED732E",
+            fontFamily: 'Helvetica Neue',
+            fontSize: 16,
+            fontWeight: 'bold'
         }
         ],
         interactivityEnabled: false,
         axisX: axProps,
         axisY: axProps,
+        backgroundColor: "#996236",
         toolTip: {
             enabled: false
         },
@@ -53,13 +62,13 @@ window.onload = function () {
         {
             type: "scatter",
             dataPoints: inCircle,
-            markerColor: "#f49e56",
+            markerColor: "#F8B12C",
             markerSize: 5
         },
         {
             type: "scatter",
             dataPoints: outCircle,
-            markerColor: "#2aa6e3",
+            markerColor: "#ED732E",
             markerSize: 5
         },
         {

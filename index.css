@@ -1,0 +1,18 @@
+body {
+	background-color: #382615;
+}
+
+.headlineContainer {
+	font-family: "Helvetica Neue";
+	font-size: 24;
+	text-align: center;
+	color: #859D3C;
+}
+
+.row {
+	height: 100%;
+}
+
+.piGraph {
+	width: 80%;
+	height: 80%;
