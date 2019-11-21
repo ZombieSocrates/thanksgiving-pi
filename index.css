@@ -2,6 +2,10 @@ body {
 	background-color: #382615;
 }
 
+code {
+	color:#F8B12C;
+}
+
 .headlineContainer {
 	font-family: "Helvetica Neue";
 	font-size: 24;
@@ -30,6 +34,19 @@ body {
 	max-width: 85%;
 }
 
-code {
-	color:#F8B12C;
+.speedToggle {
+	font-family: "Helvetica Neue";
+	font-weight: bold;
+	color: #ED732E;
+	display: inline;
+	text-align: center;
+}
+
+.speedToggle h4 {
+	text-align: left;
+	padding-left: 8em;
+}
+
+.speedToggle input[type="radio"] {
+	margin: 0 10px 0 10px;
 }
